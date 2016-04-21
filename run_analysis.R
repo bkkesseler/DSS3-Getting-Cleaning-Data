@@ -47,9 +47,6 @@
 ##   5) The work submitted for this project is the work of the student who 
 ##      submitted it.
 
-#### Load required libraries
-library(dplyr)
-
 #### Clean up the working directory
 rm(list=ls())
 
