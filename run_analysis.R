@@ -47,6 +47,9 @@
 ##   5) The work submitted for this project is the work of the student who 
 ##      submitted it.
 
+#### Load required libraries
+library(dplyr)
+
 #### Clean up the working directory
 rm(list=ls())
 
@@ -102,15 +105,17 @@ train_main_observations <- read.table('UCI HAR Dataset/train/X_train.txt', heade
 train_activity_id <- read.table('UCI HAR Dataset/train/y_train.txt', header = FALSE)
 
 #### Assign column names
-colnames(activity_map)                  <- c('activity_id','activity_type')
-colnames(test_subjects)                 <- "subject_id"
+colnames(activity_map) <- c('activity_id','activity_type')
+colnames(test_subjects) <- "subject_id"
+
 test_subjects$source <- rep('test',nrow(test_subjects)) # add source flag
-colnames(test_main_observations)        <- column_headings[,2] 
-colnames(test_activity_id)              <- "activity_id"
-colnames(train_subjects)                <- "subject_id"
+colnames(test_main_observations) <- column_headings[,2] 
+colnames(test_activity_id) <- "activity_id"
+colnames(train_subjects) <- "subject_id"
+
 train_subjects$source <- rep('train',nrow(train_subjects)) # add source flag
-colnames(train_main_observations)       <- column_headings[,2] 
-colnames(train_activity_id)             <- "activity_id"
+colnames(train_main_observations) <- column_headings[,2] 
+colnames(train_activity_id) <- "activity_id"
 
 #### Create the combined test and train files
 ## Create the combined test file
@@ -137,9 +142,9 @@ test_and_train_subset <- test_and_train[
         ## keeps anything with "mean" in the column name
         | grepl("-mean..",combined_column_names)
                 ## excludes meanFreq columns
-                & !grepl("-meanFreq..",combined_column_names) 
-        | grepl("-std..",combined_column_names) &
-                !grepl("-std()..-",combined_column_names)
+                & !grepl("-meanFreq..",combined_column_names)
+        ## keeps anything with "std" in the column name
+        | grepl("-std..",combined_column_names)
         )
         ]
 
@@ -147,3 +152,63 @@ test_and_train_subset <- test_and_train[
 ## Add activity type to main data
 source_data_tidy <- merge(test_and_train_subset, activity_map, 
                           by = 'activity_id', all.x = TRUE)
+
+## Rename data columns
+colnames(source_data_tidy) <- gsub("\\()","",colnames(source_data_tidy))
+colnames(source_data_tidy) <- gsub("^t","time_",colnames(source_data_tidy))
+colnames(source_data_tidy) <- gsub("^f","frequency_",colnames(source_data_tidy))
+colnames(source_data_tidy) <- gsub("BodyBody","body_",colnames(source_data_tidy))
+colnames(source_data_tidy) <- gsub("Body","body_",colnames(source_data_tidy))
+colnames(source_data_tidy) <- gsub("Gravity","gravity_",colnames(source_data_tidy))
+colnames(source_data_tidy) <- gsub("Acc","acceleration_",colnames(source_data_tidy))
+colnames(source_data_tidy) <- gsub("Gyro","gyroscope_",colnames(source_data_tidy))
+colnames(source_data_tidy) <- gsub("Jerk","jerk_",colnames(source_data_tidy))
+colnames(source_data_tidy) <- gsub("Mag","magnitude_",colnames(source_data_tidy))
+colnames(source_data_tidy) <- gsub("BodyBody","body_",colnames(source_data_tidy))
+colnames(source_data_tidy) <- gsub("-mean$","mean",colnames(source_data_tidy))
+colnames(source_data_tidy) <- gsub("-mean-X","X_mean",colnames(source_data_tidy))
+colnames(source_data_tidy) <- gsub("-mean-Y","Y_mean",colnames(source_data_tidy))
+colnames(source_data_tidy) <- gsub("-mean-Z","Z_mean",colnames(source_data_tidy))
+colnames(source_data_tidy) <- gsub("-std$","std_dev",colnames(source_data_tidy))
+colnames(source_data_tidy) <- gsub("-std-X","X_std_dev",colnames(source_data_tidy))
+colnames(source_data_tidy) <- gsub("-std-Y","Y_std_dev",colnames(source_data_tidy))
+colnames(source_data_tidy) <- gsub("-std-Z","Z_std_dev",colnames(source_data_tidy))
+
+## Clean the activity_type
+source_data_tidy$activity_type <- tolower(source_data_tidy$activity_type)
+
+## Refactorize activity_type
+source_data_tidy$activity_type <- factor(source_data_tidy$activity_type)
+
+## Drop unnecessary activity_id column and reorder columns
+source_data_tidy <- source_data_tidy[,c(
+        "subject_id"
+        ,"activity_type"
+        ,sort(colnames(source_data_tidy[,3:42]))
+        ,sort(colnames(source_data_tidy[,43:68]))
+        )
+        ]
+
+## Sort the data
+source_data_tidy <- source_data_tidy[
+        order(
+                source_data_tidy$subject_id
+                ,source_data_tidy$activity_type
+                )
+        ,]
+
+#### Create the summary data set
+## Summarize by subject_ud and activity_type, averaging each variable
+summary_data_tidy <- aggregate(
+        source_data_tidy[,3:68]
+        , by = list(source_data_tidy$subject_id,source_data_tidy$activity_type)
+        , FUN=mean
+        , na.rm=TRUE
+        )
+
+## Rename grouped variables
+colnames(summary_data_tidy) <- c(
+        "subject_id"
+        ,"activity_type"
+        ,colnames(summary_data_tidy[3:68])
+        )
