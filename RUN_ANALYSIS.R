@@ -209,3 +209,10 @@ colnames(summary_data_tidy) <- c(
         ,"activity_type"
         ,colnames(summary_data_tidy[3:68])
         )
+
+## Write out the two data files to CSVs
+write.csv(source_data_tidy,"tidied_data_dss3_gcd",row.names=FALSE)
+write.csv(summary_data_tidy,"summarized_data_dss3_gcd",row.names=FALSE)
+
+## Clean up workspace
+rm(list=ls())
