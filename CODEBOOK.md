@@ -8,8 +8,6 @@ Project site here:
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
 Data file downloaded here:
-https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
-
 For more information about this dataset contact: activityrecognition@smartlab.ws
 
 ===
@@ -53,14 +51,14 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 
 * __CODEBOOK.md__: This file, which documents the data source, the data structure, and the data itself.
 
-* __tidied_data_dss_gcd3.csv__: Data in a CSV file, tidied, with one row per observation, as described in the Features section.
+* __tidied_data_dss_gcd3.txt__: Data in a text file, tidied, with one row per observation, as described in the Features section.
 
-* __summary_data_dss_gc3.csv__: Data summarized per each subject and activity available, as described in the Features section.
+* __summary_data_dss_gc3.txt__: Data summarized per each subject and activity available, as described in the Features section.
 
 ===
 ## Features
 
-### Feature Selection for the Main Data (_tidied_data_dss_gcd3.csv_)
+### Feature Selection for the Main Data (_tidied_data_dss_gcd3.txt_)
 
 The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 'time' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (time_body_acceleration_XYZ and time_gravity_acceleration_XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
 
@@ -99,7 +97,7 @@ Notes:
 ------
 Features are normalized and bounded within [-1,1].
 
-### Feature Selection for the Summary Data (_summary_data_dss_gcd3.csv_)
+### Feature Selection for the Summary Data (_summary_data_dss_gcd3.txt_)
 The summary data file averages each available feature, within each subject-activity type pairing.
 
 No NAs were found, and had any been found, they would have been ignored.

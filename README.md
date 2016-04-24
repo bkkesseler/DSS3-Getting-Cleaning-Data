@@ -12,9 +12,9 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 to be located in the current working directory. It can be unzipped or not, the code is dynamic around that point.
 
 ---
-The __RUN_ANALYSIS.R__ script will process the zip file, merge the contained files as needed, combine the test and training sets, and keep only the mean and standard deviation values of the requested variables.
+The __RUN_ANALYSIS.R__ script will process the zip file, merge the contained files as needed, combine the test and training sets, and keep only the mean and standard deviation values of the requested variables, while changing the variable names to be descriptive.
 
 The __RUN_ANALYSIS.R__ code will also create a summary data file, with the average of each variable across each subject-activity type subgroup.
 
 ---
-The result will be two CSV files, __tidied_data_dss3_gcd.csv__ and __summary_data_dss3_gcd.csv__.
+The result will be two text files, __tidied_data_dss3_gcd.txt__ and __summary_data_dss3_gcd.txt__.
