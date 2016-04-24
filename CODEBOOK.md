@@ -60,7 +60,7 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 ===
 ## Features
 
-### Feature Selection for the Main Data ('tidied_data_dss_gcd3.csv)
+### Feature Selection for the Main Data (_tidied_data_dss_gcd3.csv_)
 
 The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 'time' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (time_body_acceleration_XYZ and time_gravity_acceleration_XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
 
@@ -99,7 +99,7 @@ Notes:
 ------
 Features are normalized and bounded within [-1,1].
 
-### Feature Selection for the Summary Data ('summary_data_dss_gcd3.csv)
+### Feature Selection for the Summary Data (_summary_data_dss_gcd3.csv_)
 The summary data file averages each available feature, within each subject-activity type pairing.
 
 No NAs were found, and had any been found, they would have been ignored.
