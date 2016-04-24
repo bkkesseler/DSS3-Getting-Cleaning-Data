@@ -49,13 +49,13 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 
 ### The revised and tidied dataset includes the following files:
 
-* 'README.txt'
+* __README.md__: Explains the script, beyond what is in the script itself.
 
-* 'CODEBOOK.md': This file, which documents the data source, the data structure, and the data itself.
+* __CODEBOOK.md__: This file, which documents the data source, the data structure, and the data itself.
 
-* 'tidied_data_dss_gcd3.csv': Data in a CSV file, tidied, with one row per observation, as described in the Features section.
+* __tidied_data_dss_gcd3.csv__: Data in a CSV file, tidied, with one row per observation, as described in the Features section.
 
-* 'summary_data_dss_gc3.csv': Data summarized per each subject and activity available, as described in the Features section.
+* __summary_data_dss_gc3.csv__: Data summarized per each subject and activity available, as described in the Features section.
 
 ===
 ## Features
@@ -97,7 +97,7 @@ The set of variables that were estimated from these signals are:
 
 Notes: 
 ------
-- Features are normalized and bounded within [-1,1].
+Features are normalized and bounded within [-1,1].
 
 ### Feature Selection for the Summary Data ('summary_data_dss_gcd3.csv)
 The summary data file averages each available feature, within each subject-activity type pairing.
