@@ -1,7 +1,6 @@
 # Codebook for "Getting & Cleaning Data, Data Science Specialization Course 3, Final Project"
 
-================================================================================
-
+===
 ## Data Source
 Data originally from "Human Activity Recognition Using Smartphones Data Set," within the UCI Machine Learning Repository.
 
@@ -13,13 +12,11 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 
 For more information about this dataset contact: activityrecognition@smartlab.ws
 
-================================================================================
-
+===
 ## References
 [1] Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012
 
-================================================================================
-
+===
 ## Background
 
 (the following is pulled directly from the data source readme, edited where needed to indicate variable name changes, but the majority of the text in this section is the work of the original research team)
@@ -27,12 +24,16 @@ For more information about this dataset contact: activityrecognition@smartlab.ws
 ### Human Activity Recognition Using Smartphones Dataset
 Version 1.0
 
-Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto.
-Smartlab - Non Linear Complex Systems Laboratory
-DITEN - Università degli Studi di Genova.
-Via Opera Pia 11A, I-16145, Genoa, Italy.
-activityrecognition@smartlab.ws
-www.smartlab.ws
+>Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto.
+>Smartlab - Non Linear Complex Systems Laboratory
+>DITEN - Università degli Studi di Genova.
+>Via Opera Pia 11A, I-16145, Genoa, Italy.
+>activityrecognition@smartlab.ws
+>www.smartlab.ws
+
+This dataset is distributed AS-IS and no responsibility implied or explicit can be addressed to the authors or their institutions for its use or misuse. Any commercial use is prohibited.
+
+Jorge L. Reyes-Ortiz, Alessandro Ghio, Luca Oneto, Davide Anguita. November 2012.
 
 The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (walking, walking_upstairs, walking_downstairs, sitting, standing, laying) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
 
@@ -46,7 +47,7 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 * 'activity_type' - Its activity label, a factor variable including walking, walking_upstairs, walking_downstairs, sitting, standing, laying 
 * An identifier of the subject who carried out the experiment.
 
-### The revided and tidied dataset includes the following files:
+### The revised and tidied dataset includes the following files:
 
 * 'README.txt'
 
@@ -56,12 +57,7 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 
 * 'summary_data_dss_gc3.csv': Data summarized per each subject and activity available, as described in the Features section.
 
-This dataset is distributed AS-IS and no responsibility implied or explicit can be addressed to the authors or their institutions for its use or misuse. Any commercial use is prohibited.
-
-Jorge L. Reyes-Ortiz, Alessandro Ghio, Luca Oneto, Davide Anguita. November 2012.
-
-================================================================================
-
+===
 ## Features
 
 ### Feature Selection for the Main Data ('tidied_data_dss_gcd3.csv)
