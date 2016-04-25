@@ -211,8 +211,8 @@ colnames(summary_data_tidy) <- c(
         )
 
 ## Write out the two data files to CSVs
-write.table(source_data_tidy,"tidied_data_dss3_gcd",row.names=FALSE)
-write.table(summary_data_tidy,"summary_data_dss3_gcd",row.names=FALSE)
+write.table(source_data_tidy,"tidied_data_dss3_gcd.txt",row.names=FALSE)
+write.table(summary_data_tidy,"summary_data_dss3_gcd.txt",row.names=FALSE)
 
 ## Clean up workspace
 rm(list=ls())
